@@ -1,0 +1,22 @@
+.navbar{
+    height:7vh;
+    background-color: #fbab3e;;
+    color: #f95844;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+   
+    
+    
+}
+
+.navbar-logo{
+    color:#f95844;
+    text-decoration: none;
+    font-size: 22px;
+    align-items: center;
+    width:12rem ;
+    margin:0;
+    font-weight:bold;
+}

@@ -1,0 +1,17 @@
+
+.page{
+    background-color: #fdbb7f;
+    min-height: 93vh;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    display:flex;
+    
+    
+    
+    
+   
+    
+}
