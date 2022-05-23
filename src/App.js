@@ -12,10 +12,14 @@ import EmployeeRemove from './EmployeesPage/EmployeeRemove';
 import EmployeeEdit from './EmployeesPage/EmployeeEdit';
 import VehiclesPage from './VehiclesPage/VehiclesPage';
 import VehiclesAdd from './VehiclesPage/VehiclesAdd';
+import VehiclesRemove from './VehiclesPage/VehiclesRemove';
+import VehiclesEdit from './VehiclesPage/VehiclesEdit';
+
 function App() {
 
   return (
     <div className="App">
+      
       <Routes>
         <Route path='/' element={<ClientOrWorker />} />
         <Route path='/signInWorker' element={<SignInWorker />} />
@@ -28,6 +32,8 @@ function App() {
         <Route path='/EmployeeEdit' element={<EmployeeEdit/>}/>
         <Route path='/VehiclesPage' element={<VehiclesPage/>}/>
         <Route path='/VehiclesAdd' element={<VehiclesAdd/>}/>
+        <Route path='/VehiclesRemove' element={<VehiclesRemove/>}/>
+        <Route path='/VehiclesEdit' element={<VehiclesEdit/>}/>
       </Routes>
 
     </div>

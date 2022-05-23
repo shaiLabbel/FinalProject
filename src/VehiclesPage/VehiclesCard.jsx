@@ -17,7 +17,7 @@ const typeButton =()=>{
       setButtonT(buttonType);  
     }
     if(props.type==='new'){
-        let buttonType=<button onClick={()=>(navigate('/VehicleדPage'))} style={{ margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}>רכב חדש נכנס למערכת! לחץ חזרה למסך הרכבים</button>;
+        let buttonType=<button onClick={()=>(navigate('/VehiclesPage'))} style={{ margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}>רכב חדש נכנס למערכת! לחץ חזרה למסך הרכבים</button>;
         setButtonT(buttonType);
     }
    
@@ -37,7 +37,7 @@ const typeButton =()=>{
 
         };
 
-        navigate('/VehicleRemove', {state: vehicleObj});
+        navigate('/VehiclesRemove', {state: vehicleObj});
 
     }
     const btnEdit = () => {

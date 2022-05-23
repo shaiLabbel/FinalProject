@@ -22,12 +22,9 @@ export default function AddEmployee() {
     const txtchgPhone = (e) => { setPhone(e.target.value) }
     const txtchgDate = (e) => { setDate(e.target.value) };
     const txtchgImg = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            let img = e.target.files[0];
-            setImg(URL.createObjectURL(img))
-        }
-
-    };
+        console.log(e.target.files);
+        setImg(URL.createObjectURL(e.target.files[0]));
+    }
 
     const editData = () => {
         let employee = { Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess:access };
@@ -61,6 +58,7 @@ export default function AddEmployee() {
     const newCard = () => {
         const card = <EmployeeCard type='new' id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} access={access} />
         setCard(card);
+        
     }
     const onChangeValue = (e) => {
         if (e.target.value === 'm') {
@@ -107,7 +105,7 @@ export default function AddEmployee() {
                                 <input type="radio" value="e" name="gender" /> מנהל
                             </div>
                             
-                            <button style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={editData} >הוסף</button>
+                            <button className='buttonOk' style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={editData} >הוסף</button>
                         </div>
                     </div>
 

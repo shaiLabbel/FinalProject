@@ -3,16 +3,21 @@ import Navbar from '../Navbar';
 import VehiclesCard from './VehiclesCard';
 import { Dropdown } from 'react-bootstrap'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-
+import '../CssFiles/EmployeesPage.css';
+import Calendar from 'react-calendar';
 export default function VehiclesAdd() {
 
     const apiUrl = 'http://localhost:57268/api/Vehicles';
     const apiUrl2 = 'http://localhost:57268/api/Manufacturers';
+    const apiUrl3 = 'http://localhost:57268/api/VehiclesTypes';
     const [number, setNumber] = useState();
     const [manufacturer, setManufacturer] = useState();
+    const[allTypes, setAllTypes]=useState([]);
     const[allManu, setAllManu]=useState([]);
     const[allManuStr, setAllManuStr]=useState("");
+    const[allTypeStr, setAllTypeStr]=useState("");
     const [selected, setSelected] = useState('יצרן');
+    const [selected1, setSelected1] = useState('סוג');
     const [type, setType] = useState();
     const [test, setTest] = useState();
     const [entry, setEntry] = useState();
@@ -81,8 +86,33 @@ export default function VehiclesAdd() {
             })
             .then(
                 (result) => {
-                    console.log("fetchgettAll= ", result);
+                    console.log("fetch gett All Manu= ", result);
                     setAllManu(result);
+                    
+                },
+                (error) => {
+                    console.log("err post=", error);
+                });
+
+    }
+    const getTypes = () => {
+        fetch(apiUrl3, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Accept': 'application/json; charset=UTF-8'
+            })
+        })
+            .then(res => {
+                console.log('res=', res);
+                console.log('res.status', res.status);
+                console.log('res.ok', res.ok);
+                return res.json()
+            })
+            .then(
+                (result) => {
+                    console.log("fetch gett All Types= ", result);
+                    setAllTypes(result);
                     
                 },
                 (error) => {
@@ -94,15 +124,27 @@ export default function VehiclesAdd() {
         let str = allManu.map((m, ind) => (<Dropdown.Item key={ind} eventKey={m.Manufacturer}>{m.Manufacturer}</Dropdown.Item>))
         setAllManuStr(str);
     }
+    const type2str = () => {
+        let str = allTypes.map((t, ind) => (<Dropdown.Item key={ind} eventKey={t.Type}>{t.Type}</Dropdown.Item>))
+        setAllTypeStr(str);
+    }
     const showSelected = (e) => {
         setSelected(e);
         setManufacturer(e); 
              
 
     }
+    const showSelected1 = (e) => {
+        setSelected1(e);
+        setType(e); 
+             
+
+    }
 
     useEffect(() => getManufacturers(), []);
+    useEffect(() => getTypes(), []);
     useEffect(() => manu2str(), [allManu]);
+    useEffect(() => type2str(), [allTypes]);
     return (
         <div>
             <Navbar />
@@ -126,16 +168,22 @@ export default function VehiclesAdd() {
                                 <label style={{ margin: 0, color: 'grey' }} for="formFileSm" class="form-label">:הוסף תמונה </label>
                                 <input onChange={txtchgImg} class="form-control form-control-sm" id="formFileSm" type="file" />
                             </div>
-                            <DropdownButton style={{ textAlign:'center', direction: 'rtl', marginTop:'50px'}} variant="success" title={selected} onSelect={showSelected}>
+                            <div className='row'>
+                                <div className='col' >
+                                <DropdownButton style={{ textAlign:'center', direction: 'rtl', marginTop:'50px', marginLeft:'50px'}} variant="success" title={selected} onSelect={showSelected}>
                                 {allManuStr}
                             </DropdownButton>
-                            <div style={{ color: 'grey', fontSize:'20px', marginTop:'15px' }}>
-                                <input type="radio" value="מיניבוס" name="gender" /> אוטובוס
-                                <input type="radio" value="מידיבוס" name="gender" /> מיניבוס
-                                <input type="radio" value="לימוזינבוס" name="gender" /> מידיבוס
-                                <input type="radio" value="אוטובוס" name="gender" /> לימוזינבוס
+                                </div>
+                                <div  className='col'>
+                                <DropdownButton style={{ textAlign:'center', direction: 'rtl', marginTop:'50px', marginRight:'50px'}} variant="success" title={selected1} onSelect={showSelected1}>
+                                {allTypeStr}
+                            </DropdownButton>
+                                </div>
+                           
+                           
                             </div>
-                            <button style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={editData} > הוסף רכב</button>
+                         
+                            <button style={{marginTop:'50px'}} className='buttonOk'  type="button" class="btn btn-outline-light" onClick={editData} > הוסף רכב</button>
                         </div>
                     </div>
 

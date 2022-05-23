@@ -33,7 +33,7 @@ export default function VehiclesShow() {
                 });
 
     }
-    let CardStr = vehicles.map((v, ind) => (<VehiclesCard type='show'key={ind} number={v.VehicleNumber} manufacturer={v.Manufacturer} vtype={v.Type} test={v.TestValidityDate} entry={v.EntryCompany} remarks={v.Remarks} img={v.Img}  />));
+    let CardStr = vehicles.map((v, ind) => (<VehiclesCard type='show'key={ind} number={v.VehicleNumber} manufacturer={v.Manufacturer} vtype={v.Type} test={v.TestValidityDate.substring(0,10)} entry={v.EntryCompany.substring(0,10)} remarks={v.Remarks} img={v.Img}  />));
     useEffect(() => getAll(), []);
 
 

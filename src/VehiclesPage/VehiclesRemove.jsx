@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Navbar';
-import EmployeeCard from './EmployeeCard';
+import VehiclesCard from './VehiclesCard';
 import { useNavigate } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import * as Icon from 'react-icons/ri';
 
 
-export default function EmployeeRemove() {
+
+export default function VehiclesRemove() {
     const [reasons, setReasons] = useState([]);
     const [reasonStr, setReasonStr] = useState();
     const [selected, setSelected] = useState('בחר את סיבת המחיקה');
     const [reasonForDelete, setReasonForDelete] = useState();
     const [details, setDetails] = useState();
-    
+
     const [btn, setBtn] = useState("")
     const navigate = useNavigate();
     const { state } = useLocation();
-    let userObj = state;
-    const apiUrl3 = 'http://localhost:57268/api/DeletedEmployees/';
-    const apiUrl1 = 'http://localhost:57268/api/Employees/' + userObj.num;
-    const apiUrl2 = 'http://localhost:57268/api/ReasonsForLeaving/';
+    let vehicleObj = state;
+    const apiUrl3 = 'http://localhost:57268/api/DeletedVehicles/';
+    const apiUrl1 = 'http://localhost:57268/api/Vehicles/' + vehicleObj.number;
+    const apiUrl2 = 'http://localhost:57268/api/ReasonsDeleteVehicles/';
 
-    const insert2DeletedEmployees = (emp) => {
+    const insert2DeletedVehicles = (v) => {
         fetch(apiUrl3, {
             method: 'POST',
-            body: JSON.stringify(emp),
+            body: JSON.stringify(v),
             headers: new Headers({
                 'Content-type': 'application/json; charset=UTF-8',
                 'Accept': 'application/json; charset=UTF-8'
@@ -41,9 +42,9 @@ export default function EmployeeRemove() {
                     console.log("fetch POST= ", result);
                     setBtn(
                         <div className='deleteAlert'>
-                            עובד נמחק מהמערכת והועבר לארכיון בהצלחה!
+                            רכב נמחק מהמערכת והועבר לארכיון בהצלחה!
                             <br />
-                            <button onClick={() => (navigate('/EmployeesPage'))} className='backButton'><Icon.RiArrowGoBackLine /> חזור לדף הנהגים</button>
+                            <button onClick={() => (navigate('/VehiclesPage'))} className='backButton'><Icon.RiArrowGoBackLine /> חזור לדף הרכבים</button>
 
                         </div>)
                     remove();
@@ -68,12 +69,12 @@ export default function EmployeeRemove() {
             })
             .then(
                 (result) => {
-                    console.log("fetch POST= ", result);
+                    console.log("fetch Delete= ", result);
 
 
                 },
                 (error) => {
-                    console.log("err post=", error);
+                    console.log("err delete=", error);
                 });
     }
     const getReasons = () => {
@@ -92,9 +93,9 @@ export default function EmployeeRemove() {
             })
             .then(
                 (result) => {
-                    console.log("fetchgettAll= ", result);
+                    console.log("fetch get All Reasons= ", result);
+                    setBtn(<button type="button" class="btn btn-outline-light" onClick={btnSave}>מחק רכב זה מהמערכת </button>);
                     setReasons(result);
-                    setBtn(<button type="button" class="btn btn-outline-light" onClick={btnSave}>מחק עובד זה מהמערכת </button>);
 
                 },
                 (error) => {
@@ -103,26 +104,23 @@ export default function EmployeeRemove() {
 
     }
     const btnSave = () => {
-        let deletedEmployee = {
-            Id: userObj.id,
-            EmployeeNumber: userObj.num,
-            FirstName: userObj.firstName,
-            LastName: userObj.lastName,
-            PhoneNumber: userObj.phone,
-            Mail: userObj.mail,
-            StartWorking: userObj.date,
-            Img: userObj.img,
-            ManagerAccess: userObj.access,
+        let deletedVehicle = {
+            VehicleNumber: vehicleObj.number,
+            Manufacturer: vehicleObj.manufacturer,
+            Type: vehicleObj.vtype,
+            TestValidityDate: vehicleObj.test,
+            EntryCompany: vehicleObj.entry,
+            Remarks: vehicleObj.remarks,
+            Img: vehicleObj.img,
             Reason: reasonForDelete,
             Details: details
-
         }
-        insert2DeletedEmployees(deletedEmployee);
+        insert2DeletedVehicles(deletedVehicle);
 
 
     }
     const setAllReasons = () => {
-        let str = reasons.map((re, ind) => (<Dropdown.Item key={ind} eventKey={re.Reason}  >{re.Reason}</Dropdown.Item>))
+        let str = reasons.map((re, ind) => (<Dropdown.Item key={ind} eventKey={re.Reason} >{re.Reason}</Dropdown.Item>))
         setReasonStr(str);
     }
     const showSelected = (e) => {
@@ -141,28 +139,28 @@ export default function EmployeeRemove() {
         <div>
             <Navbar />
             <div className='pageEmp'>
-                <h3 className='header'>מחיקת עובד</h3>
+                <h3 className='header'>מחיקת רכב</h3>
                 <div className='row'>
                     <div className='col'>
-                        <DropdownButton style={{ direction: 'rtl', margin: 5, fontSize:'15px'}} variant="success" title={selected} onSelect={showSelected}>
+                        <DropdownButton style={{ direction: 'rtl', margin: 5 }} variant="success" title={selected} onSelect={showSelected}>
                             {reasonStr}
                         </DropdownButton>
                         <div class="input-group">
                             <textarea class="form-control" aria-label="With textarea" placeholder='הוסף פירוט' onChange={txtchg} ></textarea>
                         </div>
-                        <EmployeeCard type='delete'
-                            id={userObj.id} num={userObj.num} firstName={userObj.firstName} lastName={userObj.lastName}
-                            phone={userObj.phone} mail={userObj.mail} date={userObj.date} img={userObj.img} access={userObj.access} />
+                        <VehiclesCard  number={ vehicleObj.number} manufacturer={vehicleObj.manufacturer}
+                         vtype={vehicleObj.vtype} test={vehicleObj.test} entry={vehicleObj.entry} remarks={vehicleObj.remarks} img={vehicleObj.img} />
                     </div>
                 </div>
                 <div className='row'>
                     {btn}
                 </div>
-
             </div>
 
-
         </div>
+
+
+
 
     )
 }
