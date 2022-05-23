@@ -23,7 +23,9 @@ export default function AddEmployee() {
     const txtchgDate = (e) => { setDate(e.target.value) };
     const txtchgImg = (e) => {
         console.log(e.target.files);
-        setImg(URL.createObjectURL(e.target.files[0]));
+        let imgPath  = URL.createObjectURL(e.target.files[0]);
+        console.log(imgPath);
+        setImg(imgPath);
     }
 
     const editData = () => {

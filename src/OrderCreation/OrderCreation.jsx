@@ -17,7 +17,7 @@ export default function OrderCreation() {
     const [date, setDate] = useState('');
     const [orderNumber, setOrderNumber]=useState('');
 
-    const apiUrl = 'http://localhost:57268/api/Orders';
+    const apiUrl = 'http://localhost:57268/api/Orders';  
 
     const btnSelect = (e) => {
         setType(e.target.value);
