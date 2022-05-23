@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link to='/VehiclesPage' className='navbar-logo'>
                רכבים
             </Link>
-            <Link to='' className='navbar-logo'>
+            <Link to='/OrderCreation' className='navbar-logo'>
                הזמנה חדשה
             </Link>
             

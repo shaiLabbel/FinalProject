@@ -62,7 +62,7 @@ const typeButton =()=>{
    
     return (
         <div className='col'>
-            <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #fbab3e', borderRadius: 30, backgroundColor: 'orange' }} class="card">
+            <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #fbab3e', borderRadius: 30, backgroundColor: 'white' }} class="card">
                 <img style={
                     {alignSelf:'center' ,height:'100px', width:'100px'}} src={props.img} class="card-img-top" alt="..." />
                 <div class="card-body">

@@ -1,0 +1,120 @@
+.header {
+    font-weight: bold;
+    font-size: 50px;
+    color: #f84c04;
+
+}
+
+.orderPage {
+    background-color: #fdbb7f;
+    min-height: 93vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    display: flex;
+
+}
+
+.card {
+    width: 400px;
+    height: 350px;
+    color: rgb(0, 0, 0);
+    margin: 10;
+    direction: rtl;
+    font-size: 15px;
+    font-weight: bold;
+    border: 3px solid #f3f3f3;
+    border-radius: 20px;
+    background-color: #fcf095
+}
+.card2{
+    width: 800px;
+    height: 350px;
+    color: rgb(0, 0, 0);
+    margin: 10;
+    direction: rtl;
+    font-size: 15px;
+    font-weight: bold;
+    border: 3px solid #f3f3f3;
+    border-radius: 20px;
+    background-color: #fcf095
+}
+.ast{
+    color:#ff0000;
+    font-size: 8px;
+    font-weight:bold; 
+    margin:2px
+}
+.txt{
+    border: 1px solid white;
+    border-radius: 2mm;
+    text-align: center;
+    font-Weight: 'lighter';
+    margin: 5px;
+}
+.ico{
+    font-size: 18px;
+    font-weight:bold; 
+    margin:5px;
+    margin-left:72px;
+}
+.arrow{
+    font-size: 28px;
+    margin-left: 10px
+}
+.add{
+    text-align: center;
+    width: 200px;
+    height: 35px;
+    font-size: 13px;
+    border-radius: 5mm;
+    margin-top: 15px;
+    background-color: rgb(126, 126, 117);
+    border: 1px solid rgb(126, 126, 117);
+  color:white;
+  font-weight: bolder;
+}
+.add:hover
+{ background-color: rgb(183, 183, 173);
+    border: 1px solid rgb(183, 183, 173);
+
+}
+.done{
+    text-align: center;
+    width: 400px;
+    height: 35px;
+    font-size: 13px;
+    border-radius: 5mm;
+    margin-right: 300px;
+    margin-top: 15px;
+    background-color: #198754;
+    color: white;
+    font-weight: bolder;
+    border: 1px solid #198754;
+}
+.done2{
+    text-align: center;
+    width: 800px;
+    height: 35px;
+    font-size: 13px;
+    border-radius: 5mm;
+    margin-right: 300px;
+    margin-top: 15px;
+    background-color: #198754;
+    color: white;
+    font-weight: bolder;
+    border: 1px solid #198754;
+}
+.done2:hover{
+    background-color: #2dd084;
+    border: 1px solid #2dd084;
+}
+.done:hover{
+    background-color: #2dd084;
+    border: 1px solid #2dd084;
+}
+.step{
+    font-weight:bolder;
+}

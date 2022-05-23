@@ -14,6 +14,8 @@ import VehiclesPage from './VehiclesPage/VehiclesPage';
 import VehiclesAdd from './VehiclesPage/VehiclesAdd';
 import VehiclesRemove from './VehiclesPage/VehiclesRemove';
 import VehiclesEdit from './VehiclesPage/VehiclesEdit';
+import OrderCreation from './OrderCreation/OrderCreation';
+import Pickup from './OrderCreation/Pickup';
 
 function App() {
 
@@ -34,6 +36,8 @@ function App() {
         <Route path='/VehiclesAdd' element={<VehiclesAdd/>}/>
         <Route path='/VehiclesRemove' element={<VehiclesRemove/>}/>
         <Route path='/VehiclesEdit' element={<VehiclesEdit/>}/>
+        <Route path='/OrderCreation' element={<OrderCreation/>}/>
+        <Route path='/PickUp' element={<Pickup/>}/>
       </Routes>
 
     </div>
