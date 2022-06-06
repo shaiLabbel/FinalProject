@@ -4,7 +4,7 @@ import '../CssFiles/EmployeesPage.css';
 
 export default function EmployeesShow() {
     const [Employees, setEmployees] = useState([]);
-    const apiUrl = 'http://localhost:57268/api/Employees';
+    const apiUrl = 'https://localhost:44388/api/Employees';
 
     const getAll = () => {
         fetch(apiUrl, {
@@ -27,7 +27,7 @@ export default function EmployeesShow() {
                     setEmployees(result);
                 },
                 (error) => {
-                    console.log("err post=", error);
+                    console.log("err post get employees=", error);
                 });
 
     }

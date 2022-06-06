@@ -5,7 +5,7 @@ import VehiclesCard from './VehiclesCard';
 export default function VehiclesShow() {
     const [vehicles, setVehicles] = useState([]);
 
-    const apiUrl = 'http://localhost:57268/api/Vehicles';
+    const apiUrl = 'https://localhost:44388/api/Vehicles';
 
     const getAll = () => {
         fetch(apiUrl, {

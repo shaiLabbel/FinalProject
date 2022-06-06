@@ -10,7 +10,7 @@ export default function EmployeeEdit() {
     const navigate = useNavigate();
     const { state } = useLocation();
     let userObj = state;
-    const apiUrl = 'http://localhost:57268/api/Employees/' + userObj.num
+    const apiUrl = 'https://localhost:44388/api/Employees/' + userObj.num
     const [alertMessage, setAlertMessage] = useState("");
     const [num, setNum] = useState(userObj.num);
     const [firstName, setFirstName] = useState(userObj.firstName);
