@@ -20,9 +20,9 @@ export default function VehiclesRemove() {
     const navigate = useNavigate();
     const { state } = useLocation();
     let vehicleObj = state;
-    const apiUrl3 = 'https://localhost:44388/api/DeletedVehicles/';
-    const apiUrl1 = 'https://localhost:44388/api/Vehicles/' + vehicleObj.number;
-    const apiUrl2 = 'https://localhost:44388/api/ReasonsDeleteVehicles/';
+    const apiUrl3 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/DeletedVehicles/';
+    const apiUrl1 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Vehicles/' + vehicleObj.number;
+    const apiUrl2 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/ReasonsDeleteVehicles/';
 
     const insert2DeletedVehicles = (v) => {
         fetch(apiUrl3, {

@@ -11,7 +11,7 @@ export default function VehiclesEdit() {
     const navigate = useNavigate();
     const { state } = useLocation();
     let vObj = state;
-    const apiUrl = 'https://localhost:44388/api/Vehicles/' + vObj.number
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Vehicles/' + vObj.number
     const [alertMessage, setAlertMessage] = useState("");
     const [test, setTest] = useState(vObj.test);
     const [entry, setEntry] = useState(vObj.entry);

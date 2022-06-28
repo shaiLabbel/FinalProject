@@ -14,7 +14,7 @@ export default function SignInWorker() {
     const txtchgEmpNum = (e) => { setInputNumber(e.target.value) };
     const txtchgEmpId = (e) => { setInputId(e.target.value) };
     const getEmployee = () => {
-        const apiUrl = 'https://localhost:44388/api/Employees/' + inputNumber;
+        const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees/' + inputNumber;
         fetch(apiUrl, {
             method: 'GET',
             headers: new Headers({

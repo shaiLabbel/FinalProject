@@ -19,7 +19,7 @@ export default function OrderCreation() {
     const [orderNumber, setOrderNumber] = useState('');
     const [alert, setAlert] = useState('');
     const [isAlert,setIsAlert]=useState('false');
-    const apiUrl = 'https://localhost:44388/api/Orders';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Orders';
 
     const btnSelect = (e) => {
         setType(e.target.value);

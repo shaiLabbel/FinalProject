@@ -4,7 +4,7 @@ import '../CssFiles/EmployeesPage.css';
 
 export default function EmployeesShow() {
     const [Employees, setEmployees] = useState([]);
-    const apiUrl = 'https://localhost:44388/api/Employees';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees';
 
     const getAll = () => {
         fetch(apiUrl, {

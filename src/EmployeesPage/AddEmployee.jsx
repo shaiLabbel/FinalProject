@@ -4,7 +4,7 @@ import EmployeeCard from './EmployeeCard';
 
 export default function AddEmployee() {
 
-    const apiUrl = 'https://localhost:44388/api/Employees';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees';
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [id, setId] = useState();

@@ -7,9 +7,9 @@ import '../CssFiles/EmployeesPage.css';
 import Calendar from 'react-calendar';
 export default function VehiclesAdd() {
 
-    const apiUrl = 'https://localhost:44388/api/Vehicles';
-    const apiUrl2 = 'https://localhost:44388/api/Manufacturers';
-    const apiUrl3 = 'https://localhost:44388/api/VehiclesTypes';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Vehicles';
+    const apiUrl2 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Manufacturers';
+    const apiUrl3 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/VehiclesTypes';
     const [number, setNumber] = useState();
     const [manufacturer, setManufacturer] = useState();
     const[allTypes, setAllTypes]=useState([]);
