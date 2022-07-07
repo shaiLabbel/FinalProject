@@ -1,7 +1,7 @@
 .navbar{
-    height:7vh;
-    background-color: #fbab3e;;
-    color: #f95844;
+    height:6vh;
+    background-color: #778899;;
+    color: #fcfcfc;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -12,9 +12,9 @@
 }
 
 .navbar-logo{
-    color:#f95844;
+    color:#d4dbe3;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     align-items: center;
     width:12rem ;
     margin:0;

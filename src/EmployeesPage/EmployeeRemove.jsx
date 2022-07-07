@@ -21,7 +21,7 @@ export default function EmployeeRemove() {
     let userObj = state;
     const apiUrl3 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/DeletedEmployees/';
     const apiUrl1 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees/' + userObj.num;
-    const apiUrl2 = 'https://proj.ruppin.ac.il/bgroup93/prod/ReasonsForLeaving/';
+    const apiUrl2 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/ReasonsForLeaving/';
 
     const insert2DeletedEmployees = (emp) => {
         fetch(apiUrl3, {

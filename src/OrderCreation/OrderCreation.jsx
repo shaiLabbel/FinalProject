@@ -16,28 +16,58 @@ export default function OrderCreation() {
     const [contactNumber, setContactNumber] = useState('');
     const [passengers, setPassengers] = useState('');
     const [date, setDate] = useState('');
-    const [orderNumber, setOrderNumber] = useState('');
+    const [orderNumber, setOrderNumber] = useState();
     const [alert, setAlert] = useState('');
-    const [isAlert,setIsAlert]=useState('false');
+    const [isAlert, setIsAlert] = useState('false');
     const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Orders';
 
     const btnSelect = (e) => {
         setType(e.target.value);
         console.log(type);
     }
+    const MakeMessage=(m)=>{
+        let alertShow = <div style={{ fontSize: '17px', marginTop: '10px', backgroundColor: 'red', color: 'white', direction: 'rtl', borderRadius: '5mm', width: '400px' }}>
+        <h3> <Icon4.FiAlertTriangle style={{ fontSize: '25px', margin: '5px' }} /> שגיאה </h3>
+        {m}
+      
+    </div>;
+    setAlert(alertShow);
+    setIsAlert('true');
+    }
 
     const btnSave = () => {
         if (type !== '' && contactName !== '' && contactNumber !== '' && passengers !== '' && date !== '') {
-            let order = {
-                ContactName: contactName,
-                ContactNumber: contactNumber,
-                Date: date,
-                Passengers: passengers,
-                Type: type,
-                OrderStatus: '1'
+
+            if (contactNumber.match(/^[0-9]+$/) === null) {
+             MakeMessage('מספר טלפון חייב להכיל מספרים בלבד')
+            }
+            else if (contactName.match(/^[A-Za-zא-ת]+$/) === null)
+            {
+             
+                MakeMessage('שם איש קשר חייב להכיל תווים בלבד')
+            }
+            else if ( date.match(/^[0-9/]+$/) === null)
+            {
+                MakeMessage('תאריך חייב להיות כתוב בתבנית הרצויה 00/00/0000')
+            }
+            else if ( passengers.match(/^[0-9]+$/) === null)
+            {
+                MakeMessage('מספר נוסעים חייב להכיל מספרים בלבד')
+            }
+            else {
+                let order = {
+                    ContactName: contactName,
+                    ContactNumber: contactNumber,
+                    Type: type,
+                    Date: date,
+                    Pssengers: passengers,
+                    OrderStatus: '1'
+                }
+                postData(order);
             }
 
-            postData(order);
+
+
         }
         else {
             let alertShow = <div style={{ fontSize: '17px', marginTop: '10px', backgroundColor: 'red', color: 'white', direction: 'rtl', borderRadius: '5mm', width: '400px' }}>
@@ -67,31 +97,32 @@ export default function OrderCreation() {
                 (result) => {
                     console.log("fetch POST order= ", result);
                     setOrderNumber(result.OrderNumber);
-                    navigate('/PickUp', { state: result.OrderNumber });
+                    navigate('/PickUp', {state:result.OrderNumber});   
+                  
                 },
                 (error) => {
                     console.log("err post order=", error);
                 });
 
+            
+               
     }
-   const checkAlert=()=>{
-   
-    if(isAlert==='true')
-    {
+    const checkAlert = () => {
 
-        setAlert('');
-        setIsAlert('false');
+        if (isAlert === 'true') {
+
+            setAlert('');
+            setIsAlert('false');
+        }
     }
-   }
-const txtChgCoNumber=(e)=>{
+  
 
-    let num=e.target.value;
-    
-}
+
+
     return (
 
 
-        <div >
+        <div>
             <Navbar />
             <div className='orderPage' >
                 <h3 className='header'> יצירת הזמנה חדש</h3>
@@ -124,7 +155,7 @@ const txtChgCoNumber=(e)=>{
 
                                 <Icon.FaAsterisk className='ast' />
                                 שם איש קשר:
-                                <input className='txt' type='text' onClick={checkAlert}onChange={(e) => setContactName(e.target.value)}></input>
+                                <input className='txt' type='text' onClick={checkAlert} onChange={(e) => setContactName(e.target.value)}></input>
                                 <Icon2.AiOutlineUser style={{ margin: '5px', fontSize: '16px' }} />
                             </div>
                             <div className='col' style={{ marginTop: '10px', marginRight: '12px' }}>

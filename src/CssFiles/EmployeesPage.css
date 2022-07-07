@@ -21,7 +21,7 @@
 }
 
 .pageEmp {
-    background-color: #fdbb7f;
+    background-image: url("https://bashooka.com/wp-content/uploads/2018/04/scg-canvas-background-animation-24.jpg") ;
     min-height: 93vh;
     flex-direction: column;
     align-items: center;
@@ -34,9 +34,10 @@
 }
 
 .header {
+    margin-top: 20px;
     font-weight: bold;
     font-size: 50px;
-    color: #f84c04;
+    color: #ffffff;
 
 }
 
