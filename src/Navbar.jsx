@@ -13,8 +13,8 @@ export default function Navbar() {
             <Icon.FaBusAlt style={{margin:5}}/>
                דף הבית 
             </Link >
-            <Link to='' className='navbar-logo'>
-               התראות
+            <Link to='/ManagmentPage' className='navbar-logo'>
+               ניהול הזמנות
             </Link>
             <Link to='' className='navbar-logo'>
                סידור עבודה

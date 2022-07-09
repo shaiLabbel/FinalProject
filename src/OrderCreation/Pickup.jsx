@@ -15,7 +15,7 @@ export default function Pickup(props) {
   const [pointsStr, setPointsStr] = useState('')
   const [alert,setAlert]=useState('');
   const { state } = useLocation();
-  
+  const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/OrderUpdates';
 
 
   const orderNumber = state;
@@ -43,9 +43,36 @@ setAlert(alert);
  }
 
  const btnSave = () =>{
+let update={OrderNumber:orderNumber};
+  postDataUpdate(update);
   navigate('/ShowOrder', {state:orderNumber});   
                   
  }
+ const postDataUpdate = (update) => {
+  fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(update),
+      headers: new Headers({
+          'Content-type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8'
+      })
+  })
+      .then(res => {
+          console.log('res=', res);
+          return res.json()
+      })
+      .then(
+          (result) => {
+              console.log("fetch POST order update= ", result);
+
+          },
+          (error) => {
+              console.log("err post order update=", error);
+          });
+
+
+
+}
   return (
     <div>
       <Navbar />

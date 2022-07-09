@@ -1,0 +1,87 @@
+
+.pageOM {
+    background-image: url("https://bashooka.com/wp-content/uploads/2018/04/scg-canvas-background-animation-24.jpg") ;
+    min-height: 94vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    display: flex;
+}
+.cardM{
+    width: 1200px;
+    height: 500px;
+    color: rgb(0, 0, 0);
+    margin: 10;
+    direction: rtl;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    background-color: #7992a9
+}
+.cardU {
+   
+    width:95%;
+margin-right: 30px;
+margin-top: 5px;
+    height: 70px;
+    color: rgb(0, 0, 0);
+    direction: rtl;
+    font-size:15px;
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    background-color: #cbdcea;
+    
+}
+.tag1{
+        background-color:#efea42;
+        font-size: 12px;
+        align-items: center;
+        width:130px ;
+        height: 35px;
+        border:#efea42;
+        border-radius: 2px;
+    
+}
+.tag2{
+    background-color:#e8b707;
+    font-size: 12px;
+    align-items: center;
+    width:130px ;
+    height: 35px;
+    border:#e8b707;
+    border-radius: 2px;
+
+}
+.tag3{
+    background-color:#76eb59;
+    font-size: 12px;
+    align-items: center;
+    width:130px ;
+    height: 35px;
+    border:#76eb59;
+    border-radius: 2px;
+
+}
+.tag4{
+    background-color:#59c7eb;
+    font-size: 12px;
+    align-items: center;
+    width:130px ;
+    height: 35px;
+    border:#59c7eb;
+    border-radius: 2px;
+
+}
+.tag4{
+    background-color:#bc6bf1;
+    font-size: 12px;
+    align-items: center;
+    width:130px ;
+    height: 35px;
+    border:#bc6bf1;
+    border-radius: 2px;
+
+}

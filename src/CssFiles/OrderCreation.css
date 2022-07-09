@@ -7,7 +7,7 @@
 
 .orderPage {
     background-image: url("https://bashooka.com/wp-content/uploads/2018/04/scg-canvas-background-animation-24.jpg") ;
-    min-height: 93vh;
+    min-height: 94vh;
     flex-direction: column;
     align-items: center;
     justify-content: top;
@@ -27,7 +27,8 @@
     font-weight: bold;
     border: 1px solid #f3f3f3;
     border-radius: 20px;
-    background-color: #8f9fae
+    background-color: #8f9fae;
+    margin-left:80px;
 }
 .card2{
     width: 800px;
@@ -153,4 +154,65 @@
     border: 1px solid white;
   color:white;
   font-weight: bolder;
+}
+.imageBig{
+    margin-left: 150px;
+    margin-top: 30px;
+    height: 300px;
+}
+.imageBig2
+{
+
+    margin-top: 30px;
+    height: 300px;
+}
+.imageBig3{
+    margin-left: 80px;
+    margin-top: 30px;
+    height: 300px;
+}
+.imageBig4{
+    margin-top: 30px;
+    height: 300px;
+}
+.buttonView {
+    direction: 'rtl';
+    color: white;
+    background-color: #198754;
+    border-radius: 2mm;
+    font-size: 17px;
+}
+.buttonView:hover {
+    direction: 'rtl';
+    color: white;
+    background-color: #2db676;
+    border-radius: 2mm;
+    font-size: 17px;
+}
+.card3 {
+   
+    width: 700px;
+    height: 40px;
+    color: rgb(0, 0, 0);
+    direction: rtl;
+    font-size:15px;
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    background-color: #5c6e7e;
+    margin: 3px;
+    
+}
+.buttonClose {
+    direction: 'rtl';
+    color: white;
+    background-color: #e82828;
+    border-radius: 2mm;
+    font-size: 17px;
+}
+.buttonClose:hover {
+    direction: 'rtl';
+    color: white;
+    background-color: #ff5151;
+    border-radius: 2mm;
+    font-size: 17px;
 }
