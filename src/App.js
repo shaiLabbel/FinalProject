@@ -18,6 +18,7 @@ import OrderCreation from './OrderCreation/OrderCreation';
 import Pickup from './OrderCreation/Pickup';
 import ShowOrder from './OrderCreation/ShowOrder';
 import ManagmentPage from './OrderManagment/ManagmentPage'
+import SchedulePage from './WorkSchedule/SchedulePage';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/PickUp' element={<Pickup/>}/>
         <Route path='/ShowOrder' element={<ShowOrder/>}/>
         <Route path='/ManagmentPage' element={<ManagmentPage/>}/>
+        <Route path='/SchedulePage' element={<SchedulePage/>}/>
       </Routes>
 
     </div>
