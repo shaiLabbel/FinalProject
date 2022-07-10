@@ -115,7 +115,7 @@ export default function AddEmployee() {
         <div>
             <Navbar />
             <div className='pageEmp'>
-                <h3 className='header'>הוספת עובד חדש למערכת</h3>
+                <h3 className='header'>הוספת עובד חדש למערכת <img className='imageDriver' src='https://cdn-icons-png.flaticon.com/512/1219/1219018.png' /></h3>
                 <div className='container'>
                     <div className='row'>
                         <div style={{ marginLeft: '20%' }} className='col'>

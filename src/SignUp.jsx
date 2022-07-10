@@ -7,7 +7,7 @@ export default function SignUp() {
         }
     
     )
-    const apiUrl = 'http://localhost:51895/api/Orders';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Orders';
 
     const getAll = () => {
         fetch(apiUrl, {

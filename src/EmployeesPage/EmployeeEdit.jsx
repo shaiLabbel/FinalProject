@@ -19,9 +19,11 @@ export default function EmployeeEdit() {
     const [mail, setMail] = useState(userObj.mail);
     const [phone, setPhone] = useState(userObj.phone);
     const [date, setDate] = useState(userObj.date);
-    const [access, setAccess] = useState(userObj.access);
     const [img, setImg] = useState(userObj.img);
-    const [card, setCard] = useState(<EmployeeCard id={userObj.id} num={userObj.num} firstName={userObj.firstName} lastName={userObj.lastName} phone={userObj.phone} mail={userObj.mail} date={userObj.date} img={userObj.img} access={userObj.access} />);
+    const [card, setCard] = useState(<EmployeeCard id={userObj.id} num={userObj.num} firstName={userObj.firstName} lastName={userObj.lastName} phone={userObj.phone} mail={userObj.mail} date={userObj.date} img={userObj.img}  />);
+    const [alert, setAlert] = useState('');
+    const [isAlert, setIsAlert] = useState('false');
+
 
     const txtchgName = (e) => { setFirstName(e.target.value) };
     const txtchgLast = (e) => { setLastName(e.target.value) };
@@ -29,28 +31,54 @@ export default function EmployeeEdit() {
     const txtchgMail = (e) => { setMail(e.target.value) };
     const txtchgPhone = (e) => { setPhone(e.target.value) }
     const txtchgDate = (e) => { setDate(e.target.value) };
-    const txtchgImg = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            let img = e.target.files[0];
-            setImg(URL.createObjectURL(img))
-        }
 
-    };
+
+    const MakeMessage = (m) => {
+        let alertShow = <div style={{ fontSize: '17px', marginTop: '10px', backgroundColor: 'red', color: 'white', direction: 'rtl', borderRadius: '5mm', width: '400px' }}>
+            <h3> <Icon.FiAlertTriangle style={{ fontSize: '25px', margin: '5px' }} /> שגיאה </h3>
+            {m}
+
+        </div>;
+        setAlert(alertShow);
+        setIsAlert('true');
+    }
 
     const newCard = () => {
-        const card = <EmployeeCard type='edit' num={num} id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} access={access} />
-        setCard(card);
+
+            if (phone.match(/^[0-9]+$/) === null) {
+                MakeMessage('מספר טלפון חייב להכיל מספרים בלבד')
+                setPhone(userObj.phone);
+            }
+            else if (id.match(/^[0-9]+$/) === null) {
+                MakeMessage('תעודת זהות חייבת להכיל מספרים בלבד')
+                setId(userObj.id);
+            }
+            else if (firstName.match(/^[A-Z a-z א-ת ]+$/) === null) {
+
+                MakeMessage('שם העובד חייב להכיל תווים בלבד')
+                setFirstName(userObj.firstName);
+            }
+            else if (lastName.match(/^[A-Z a-z א-ת ]+$/) === null) {
+
+                MakeMessage('שם המשפחה של העובד חייב להכיל תווים בלבד')
+                setLastName(userObj.lastName);
+            }
+            else if (date.match(/^[0-9 -]+$/) === null) {
+                MakeMessage('תאריך חייב להיות כתוב בפורמט הבא 22-07-2022')
+                setDate(userObj.date);
+            }
+            else{
+                const card = <EmployeeCard type='edit' num={num} id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img}  />
+                setCard(card);
+
+            }
+        
+         
+     
     }
-    const onChangeValue = (e) => {
-        if (e.target.value === 'm') {
-            setAccess('כן');
-        }
-        else {
-            setAccess('לא');
-        }
-    }
+ 
     const btnOk = () => {
-        let employee = { EmployeeNumber: num, Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess: access };
+        let employee = { EmployeeNumber: num, Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img};
         insert2Db(employee);
     }
     const insert2Db = (e) => {
@@ -89,6 +117,14 @@ export default function EmployeeEdit() {
                 });
 
     }
+    const checkAlert = () => {
+
+        if (isAlert === 'true') {
+
+            setAlert('');
+            setIsAlert('false');
+        }
+    }
 
 
     return (
@@ -108,20 +144,28 @@ export default function EmployeeEdit() {
                         </div>
                         <div style={{ marginRight: '150px' }} className='col'>
                             <p>שם פרטי:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.firstName} onChange={txtchgName}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.firstName}  onClick={checkAlert} onChange={txtchgName}></input>
                             <p>שם משפחה:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.lastName} onChange={txtchgLast}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.lastName}  onClick={checkAlert} onChange={txtchgLast}></input>
                             <p>תעודת זהות:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.id} onChange={txtchgId}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.id}  onClick={checkAlert} onChange={txtchgId}></input>
                             <p>מייל:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.mail} onChange={txtchgMail}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.mail}  onClick={checkAlert} onChange={txtchgMail}></input>
                             <p>מספר טלפון:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.phone} onChange={txtchgPhone}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.phone}  onClick={checkAlert} onChange={txtchgPhone}></input>
                             <p>תאריך תחילת עבודה:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.date} onChange={txtchgDate}></input>
+                            <input className='txtBoxE' type='text' placeholder={userObj.date} onClick={checkAlert}  onChange={txtchgDate}></input>
 
                             <button style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={newCard} >ערוך לתצוגה</button>
+
+                          
                         </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col'>
+                        {alert}
+                        </div>
+                    
                     </div>
 
                 </div>
