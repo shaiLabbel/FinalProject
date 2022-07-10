@@ -47,12 +47,12 @@ margin-top: 5px;
     
 }
 .tag2{
-    background-color:#e8b707;
+    background-color:#e88e07;
     font-size: 12px;
     align-items: center;
     width:130px ;
     height: 35px;
-    border:#e8b707;
+    border:#e88e07;
     border-radius: 2px;
 
 }
@@ -85,4 +85,45 @@ margin-top: 5px;
     border:#bc6bf1;
     border-radius: 2px;
 
+}
+.imageBid{
+   
+       
+        margin-top: 30px;
+        height: 200px;
+    
+    
+}
+.imageBid2{
+   
+    margin-left: 150px;
+    margin-top: 30px;
+    height: 200px;
+
+
+}
+.txtInput{
+    border: 1px solid white;
+    border-radius: 2mm;
+    text-align: center;
+    font-Weight: 'lighter';
+    height: 50px;
+    margin: 5px;
+}
+.buttonBid {
+    direction: 'rtl';
+    color: white;
+    background-color: #198754;
+    border-radius: 2mm;
+    font-size: 15px;
+    width:120px;
+    margin-right:130px;
+    margin-top:5px;
+}
+.buttonBid:hover {
+    direction: 'rtl';
+    color: white;
+    background-color: #2db676;
+    border-radius: 2mm;
+    font-size: 15px;
 }

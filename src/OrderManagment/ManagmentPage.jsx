@@ -33,7 +33,7 @@ export default function ManagmentPage() {
 
     }
     useEffect(() => getAll(), []);
-    let str = Updates.map((u,ind)=>(<UpdateCard key={ind} status={u.OrderStatus} statusNumber={'tag'+u.StatusNumber}
+    let str = Updates.map((u,ind)=>(<UpdateCard key={ind} status={u.OrderStatus} statusNumber={'tag'+u.StatusNumber} passengers={u.passengers}
          date={u.Date} time={u.Time} orderDate={u.OrderDate} cName={u.ContactName} bid={u.Bid} uNumber={u.UpdateId} oNumber={u.OrderNumber}/>));
     return (
         <div>

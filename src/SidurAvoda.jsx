@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import './CssFiles/HomeManager.css'
 
-export default function ManageOrder(props) {
+export default function SidurAvoda(props) {
   const [sidur, setSidur] = useState([])
   const [orderNums, setOrderNums] = useState([])
   const [employees, setEmployees] = useState([])

@@ -21,6 +21,7 @@ import ManagmentPage from './OrderManagment/ManagmentPage'
 import SchedulePage from './WorkSchedule/SchedulePage';
 import ManageOrder from './ManageOrder';
 import SidurAvoda from './SidurAvoda';
+import BidUpdate from './OrderManagment/BidUpdate';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         <Route path='/SchedulePage' element={<SchedulePage/>}/>
         <Route path='/ManageOrder' element={<ManageOrder/>}/>
         <Route path='/SidurAvoda' element={<SidurAvoda/>}/>
+        <Route path='/BidUpdate' element={<BidUpdate/>}/>
         
       </Routes>
 
