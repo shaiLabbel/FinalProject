@@ -5,7 +5,9 @@ import * as Icon from 'react-icons/fi';
 
 export default function AddEmployee() {
 
+    const img = "https://cdn-icons-png.flaticon.com/512/305/305982.png"
     const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees';
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [id, setId] = useState('');
@@ -35,6 +37,8 @@ export default function AddEmployee() {
     }
     
     const editData = () => {
+        let employee = { Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess: access };
+        postData(employee);
         if (firstName !== '' && lastName !== '' && id !== '' && mail !== '' && phone !== '' && date!==null) {
 
             if (phone.match(/^[0-9]+$/) === null) {
@@ -96,7 +100,8 @@ export default function AddEmployee() {
 
     }
     const newCard = () => {
-        const card = <EmployeeCard type='new' id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} />
+        const card = <EmployeeCard type='new' id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} access={access} />
+
         setCard(card);
 
     }
