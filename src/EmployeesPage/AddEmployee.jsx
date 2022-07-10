@@ -11,9 +11,9 @@ export default function AddEmployee() {
     const [mail, setMail] = useState();
     const [phone, setPhone] = useState();
     const [date, setDate] = useState();
-    const [access, setAccess] = useState();
-    const [img, setImg] = useState('https://media.istockphoto.com/vectors/male-face-silhouette-or-icon-man-avatar-profile-unknown-or-anonymous-vector-id1087531642?k=20&m=1087531642&s=170667a&w=0&h=ge3fq1Dw0-J2FoW96c8klSiHyOnitVhReUUuIIYqtvw=');
-    const [card, setCard] = useState(<EmployeeCard img={'https://media.istockphoto.com/vectors/male-face-silhouette-or-icon-man-avatar-profile-unknown-or-anonymous-vector-id1087531642?k=20&m=1087531642&s=170667a&w=0&h=ge3fq1Dw0-J2FoW96c8klSiHyOnitVhReUUuIIYqtvw='} />);
+    const [card, setCard] = useState(<EmployeeCard img={'https://cdn-icons-png.flaticon.com/512/305/305982.png'} />);
+    const [alert, setAlert] = useState('');
+    const [isAlert, setIsAlert] = useState('false');
 
     const txtchgName = (e) => { setFirstName(e.target.value) };
     const txtchgLast = (e) => { setLastName(e.target.value) };
@@ -21,15 +21,10 @@ export default function AddEmployee() {
     const txtchgMail = (e) => { setMail(e.target.value) };
     const txtchgPhone = (e) => { setPhone(e.target.value) }
     const txtchgDate = (e) => { setDate(e.target.value) };
-    const txtchgImg = (e) => {
-        console.log(e.target.files);
-        let imgPath  = URL.createObjectURL(e.target.files[0]);
-        console.log(imgPath);
-        setImg(imgPath);
-    }
 
+    
     const editData = () => {
-        let employee = { Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess:access };
+        let employee = { Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess: access };
         postData(employee);
     }
     const postData = (employee) => {
@@ -60,16 +55,9 @@ export default function AddEmployee() {
     const newCard = () => {
         const card = <EmployeeCard type='new' id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} access={access} />
         setCard(card);
-        
+
     }
-    const onChangeValue = (e) => {
-        if (e.target.value === 'm') {
-            setAccess('כן');
-        }
-        else {
-            setAccess('לא');
-        }
-    }
+
 
 
     return (
@@ -79,10 +67,10 @@ export default function AddEmployee() {
                 <h3 className='header'>הוספת עובד חדש למערכת</h3>
                 <div className='container'>
                     <div className='row'>
-                        <div style={{marginLeft:'20%'}} className='col'>
+                        <div style={{ marginLeft: '20%' }} className='col'>
                             {card}
                         </div>
-                        <div style={{marginRight:'17%', marginTop:'3mm'}} className='col'>
+                        <div style={{ marginRight: '17%', marginTop: '3mm' }} className='col'>
                             <input className='txtBox' type='text' placeholder='שם הנהג' onChange={txtchgName}></input>
                             <br />
                             <input className='txtBox' type='text' placeholder='שם משפחה' onChange={txtchgLast}></input>
@@ -97,17 +85,10 @@ export default function AddEmployee() {
                             <br />
                             <input className='txtBox' type='text' placeholder='תאריך תחילת עבודה' onChange={txtchgDate}></input>
                             <br />
-                            <div style={{ width: '266.8px', height: '40.64px', marginLeft: 61 }} class="mb-3">
-                                <label style={{margin:0, color:'grey'}} for="formFileSm" class="form-label">:הוסף תמונת פרופיל</label>
-                                <input  onChange={txtchgImg} class="form-control form-control-sm" id="formFileSm" type="file"/>
-                            </div>
-                            <br/>
-                            <div style={{color:'grey'}} onChange={onChangeValue}>
-                                <input type="radio" value="m" name="gender" /> עובד
-                                <input type="radio" value="e" name="gender" /> מנהל
-                            </div>
-                            
                             <button className='buttonOk' style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={editData} >הוסף</button>
+                            <div className='row'>
+                                {alert}
+                            </div>
                         </div>
                     </div>
 

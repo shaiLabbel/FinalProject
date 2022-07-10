@@ -62,26 +62,26 @@ const typeButton =()=>{
    
     return (
         <div className='col'>
-            <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #fbab3e', borderRadius: 30, backgroundColor: 'white' }} class="card">
+            <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #8f9fae', borderRadius: 30, backgroundColor: '#8f9fae' }} class="card">
                 <img style={
                     {alignSelf:'center' ,height:'100px', width:'100px'}} src={props.img} class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">מספר עובד:</p>
-                    <p style={{ margin: 0 }}>{props.num}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">תעודת זהות:</p>
-                    <p style={{ margin: 0 }}>{props.id}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">שם פרטי:</p>
-                    <p style={{ margin: 0 }}>{props.firstName}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">שם משפחה:</p>
-                    <p style={{ margin: 0 }}>{props.lastName}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">מייל:</p>
-                    <p style={{ margin: 0 }}>{props.mail}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">טלפון:</p>
-                    <p style={{ margin: 0 }}>{props.phone}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">תאריך תחילת עבודה:</p>
-                    <p style={{ margin: 0 }}>{props.date}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">גישת מנהל למערכת:</p>
-                    <p style={{ margin: 0 }}>{props.access}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} > <u>מספר עובד: </u></p>
+                    <p style={{ margin: 0, fontWeight: 'normal', color:'black' }}>{props.num}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} ><u>תעודת זהות:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.id}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} ><u>שם פרטי:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.firstName}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>שם משפחה:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.lastName}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>מייל:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.mail}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} ><u>טלפון:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.phone}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>תאריך תחילת עבודה:</u></p>
+                    <p style={{ margin: 0, fontWeight: 'normal' , color:'black'}}>{props.date}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>גישת מנהל למערכת:</u></p>
+                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.access}</p>
                     {buttonT}
                 </div>
             </div>

@@ -14,7 +14,7 @@ export default function EmployeesPage() {
             <Navbar />
             <div className='pageEmp'>
 
-                <h3 className='header'>עובדי המערכת </h3>
+                <h3 className='header'>עובדי המערכת  <img className='imageDriver' src='https://cdn-icons-png.flaticon.com/512/1535/1535791.png' /></h3> 
                 <button onClick={() => { navigate('/AddEmployee') }} className='button'>  הוסף עובד
                     <Icon.BsPersonPlus style={{ fontSize: 22, color: 'white', marginLeft:'5px', marginBottom:'3px' }}
                     /> 

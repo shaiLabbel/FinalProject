@@ -13,9 +13,12 @@ export default function UpdateCard(props) {
                     <span>{props.date.substring(0, 10)} {props.time.substring(0, 5)} </span>
                 </div>
                 <div className='row'>
-                   <div style={{marginTop:'3px'}} className='col'>
+                   <div style={{marginTop:'3px', textAlign:'right'}} className='col'>
                     <button className={props.statusNumber}> {props.status}</button>
+                    <span style={{fontWeight:'normal'}}> הזמנה מספר:{props.oNumber}, עבור הלקוח: {props.cName}, בתאריך {props.orderDate.substring(0,10)} </span>
+                    
                    </div>
+           
 
                 </div>
 

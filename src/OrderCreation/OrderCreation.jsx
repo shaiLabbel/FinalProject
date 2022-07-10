@@ -6,6 +6,7 @@ import * as Icon from 'react-icons/fa';
 import * as Icon2 from 'react-icons/ai';
 import * as Icon3 from 'react-icons/bs';
 import * as Icon4 from 'react-icons/fi';
+import moment from 'moment';
 import Pickup from './Pickup';
 
 export default function OrderCreation() {
@@ -45,16 +46,23 @@ export default function OrderCreation() {
 
                 MakeMessage('שם איש קשר חייב להכיל תווים בלבד')
             }
+            else if (date.match(/^[0-9 -]+$/) === null) {
+                MakeMessage('תאריך חייב להיות כתוב בפורמט הבא 22-07-2022')
+            }
          
             else if (passengers.match(/^[0-9]+$/) === null) {
                 MakeMessage('מספר נוסעים חייב להכיל מספרים בלבד')
             }
             else {
+
+                let d = moment.utc(date, 'DD-MM-YYYY');
+                console.log(d);
+
                 let order = {
                     ContactName: contactName,
                     ContactNumber: contactNumber,
                     Type: type,
-                    Date: date,
+                    Date: d,
                     Pssengers: passengers,
                     OrderStatus: '1'
                 }
@@ -114,8 +122,10 @@ export default function OrderCreation() {
     }
 
 const txtDate = (e)=>{
-let date = new Date(e.target.value);
-setDate(date);
+
+
+setDate(e.target.value);
+
 
 }
 
