@@ -38,7 +38,7 @@ export default function EmployeeRemove() {
             })
             .then(
                 (result) => {
-                    console.log("fetch POST= ", result);
+                    console.log("fetch POST in deleted employees= ", result);
                     setBtn(
                         <div className='deleteAlert'>
                             עובד נמחק מהמערכת והועבר לארכיון בהצלחה!
@@ -50,7 +50,7 @@ export default function EmployeeRemove() {
 
                 },
                 (error) => {
-                    console.log("err post=", error);
+                    console.log("err POST in deleted employees=", error);
                 });
     }
     const remove = () => {
@@ -68,12 +68,12 @@ export default function EmployeeRemove() {
             })
             .then(
                 (result) => {
-                    console.log("fetch POST= ", result);
+                    console.log("fetch Delete employee= ", result);
 
 
                 },
                 (error) => {
-                    console.log("err post=", error);
+                    console.log("err Delete employee=", error);
                 });
     }
     const getReasons = () => {
@@ -92,13 +92,13 @@ export default function EmployeeRemove() {
             })
             .then(
                 (result) => {
-                    console.log("fetchgettAll= ", result);
+                    console.log("fetch gett All reasons= ", result);
                     setReasons(result);
                     setBtn(<button type="button" class="btn btn-outline-light" onClick={btnSave}>מחק עובד זה מהמערכת </button>);
 
                 },
                 (error) => {
-                    console.log("err post=", error);
+                    console.log("err  gett All reasons=", error);
                 });
 
     }
@@ -112,7 +112,6 @@ export default function EmployeeRemove() {
             Mail: userObj.mail,
             StartWorking: userObj.date,
             Img: userObj.img,
-            ManagerAccess: userObj.access,
             Reason: reasonForDelete,
             Details: details
 
@@ -141,7 +140,7 @@ export default function EmployeeRemove() {
         <div>
             <Navbar />
             <div className='pageEmp'>
-                <h3 className='header'>מחיקת עובד</h3>
+                <h3 className='header'>מחיקת עובד  <img className='imageDriver' src='https://cdn-icons-png.flaticon.com/128/2720/2720601.png' /></h3>
                 <div className='row'>
                     <div className='col'>
                         <DropdownButton style={{ direction: 'rtl', margin: 5, fontSize:'15px'}} variant="success" title={selected} onSelect={showSelected}>

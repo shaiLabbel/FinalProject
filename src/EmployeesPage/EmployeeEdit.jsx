@@ -95,7 +95,7 @@ export default function EmployeeEdit() {
         <div>
             <Navbar />
             <div className='pageEmp'>
-                <h3 className='header'>עריכת עובד</h3>
+                <h3 className='header'>עריכת עובד <img className='imageDriver' src='https://cdn-icons-png.flaticon.com/512/138/138849.png' /></h3>
                 <div className='container'>
                     <div className='row'>
                         <div className='col' >
@@ -117,19 +117,8 @@ export default function EmployeeEdit() {
                             <input className='txtBoxE' type='text' placeholder={userObj.mail} onChange={txtchgMail}></input>
                             <p>מספר טלפון:</p>
                             <input className='txtBoxE' type='text' placeholder={userObj.phone} onChange={txtchgPhone}></input>
-                            <p>כתובת:</p>
-                            <input className='txtBoxE' type='text' placeholder={userObj.address}></input>
                             <p>תאריך תחילת עבודה:</p>
                             <input className='txtBoxE' type='text' placeholder={userObj.date} onChange={txtchgDate}></input>
-                            <div style={{ width: '219.6px', height: '34px', marginLeft: 40 }} class="mb-3">
-                                <label style={{ margin: 0, fontSize: '15px' }} for="formFileSm" class="form-label">: תמונת פרופיל</label>
-                                <input onChange={txtchgImg} class="form-control form-control-sm" id="formFileSm" type="file" />
-                            </div>
-
-                            <div style={{ color: 'grey', fontSize: '17px' }} onChange={onChangeValue}>
-                                <input style={{ marginTop: '25px' }} type="radio" value="m" name="gender" /> עובד
-                                <input type="radio" value="e" name="gender" /> מנהל
-                            </div>
 
                             <button style={{ margin: 5 }} type="button" class="btn btn-outline-light" onClick={newCard} >ערוך לתצוגה</button>
                         </div>

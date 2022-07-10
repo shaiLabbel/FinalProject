@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 
 export default function SignUp() {
     const styles=(
@@ -7,7 +7,34 @@ export default function SignUp() {
         }
     
     )
+    const apiUrl = 'http://localhost:51895/api/Orders';
 
+    const getAll = () => {
+        fetch(apiUrl, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Accept': 'application/json; charset=UTF-8'
+            })
+        })
+            .then(res => {
+                console.log('res=', res);
+                console.log('res.status', res.status);
+                console.log('res.ok', res.ok);
+                return res.json()
+            })
+            .then(
+                (result) => {
+                    console.log("fetchgettAll= ", result);
+                   
+               
+                },
+                (error) => {
+                    console.log("err post get employees=", error);
+                });
+
+    }
+    useEffect(() => getAll(), []);
     return (
 
         <div className='App-header'>
@@ -31,9 +58,7 @@ export default function SignUp() {
                 <br/>
                 <button style={{margin:10}}type="button" class="btn btn-outline-light">שמירה</button>
                 
-                
-          
-           
+
             </div>
         </div>
 
