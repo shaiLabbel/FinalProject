@@ -103,13 +103,14 @@ p {
     direction: rtl;
     font-size:20px;
     font-weight: bolder;
-    color: #363434;
+    color: #fffdfd;
 }
 
 .cardButtons {
     margin:5px;
     border-radius: 2mm;
-    background-color:#f95844
+    background-color:#f95844;
+    font-size: 12px;
 }
 .cardButtons:hover{
     background-color:#fa0000

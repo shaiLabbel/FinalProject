@@ -33,13 +33,15 @@ export default function EmployeesShow() {
     }
 
     useEffect(() => getAll(), []);
-    let CardStr = Employees.map((emp, ind) => (<EmployeeCard type='show' key={ind} id={emp.Id} num={emp.EmployeeNumber} firstName={emp.FirstName} lastName={emp.LastName} phone={emp.PhoneNumber} mail={emp.Mail} date={emp.StartWorking.substring(0,10)} img={emp.Img} access={emp.ManagerAccess}/>));
+    let CardStr = Employees.map((emp, ind) => (<EmployeeCard type='show' key={ind} id={emp.Id} num={emp.EmployeeNumber} firstName={emp.FirstName} 
+        lastName={emp.LastName} phone={emp.PhoneNumber} mail={emp.Mail} date={emp.StartWorking.substring(0,10)} img={emp.Img} access={emp.ManagerAccess}/>));
     return (
         <div >
             <div className='container'>
                 <div className='row'>
-                    {CardStr}
+                {CardStr}
                 </div>
+                 
             </div>
         </div>
 

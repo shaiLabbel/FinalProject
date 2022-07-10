@@ -17,7 +17,7 @@ const typeButton =()=>{
       setButtonT(buttonType);  
     }
     if(props.type==='new'){
-        let buttonType=<button onClick={()=>(navigate('/EmployeesPage'))} style={{ margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}><Icon.FaUserCheck />עובד חדש נוסף למערכת! לחץ חזרה למסך הנהגים</button>;
+        let buttonType=<button onClick={()=>(navigate('/EmployeesPage'))} style={{fontSize:'12px', margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}><Icon.FaUserCheck />עובד חדש נוסף למערכת! לחץ חזרה למסך הנהגים</button>;
         setButtonT(buttonType);
     }
    
@@ -64,7 +64,7 @@ const typeButton =()=>{
         <div className='col'>
             <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #8f9fae', borderRadius: 30, backgroundColor: '#8f9fae' }} class="card">
                 <img style={
-                    {alignSelf:'center' ,height:'100px', width:'100px'}} src={props.img} class="card-img-top" alt="..." />
+                    {alignSelf:'center' ,height:'50px', width:'50px'}} src={props.img} class="card-img-top" alt="..." />
                 <div class="card-body">
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} > <u>מספר עובד: </u></p>
                     <p style={{ margin: 0, fontWeight: 'normal', color:'black' }}>{props.num}</p>
@@ -80,8 +80,6 @@ const typeButton =()=>{
                     <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.phone}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>תאריך תחילת עבודה:</u></p>
                     <p style={{ margin: 0, fontWeight: 'normal' , color:'black'}}>{props.date}</p>
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }}><u>גישת מנהל למערכת:</u></p>
-                    <p style={{ margin: 0 , fontWeight: 'normal', color:'black'}}>{props.access}</p>
                     {buttonT}
                 </div>
             </div>
