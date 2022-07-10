@@ -5,7 +5,32 @@ import './CssFiles/HomeManager.css'
 export default function ManageOrder(props) {
   const [sidur, setSidur] = useState([])
   const [orderNums, setOrderNums] = useState([])
+  const [employees, setEmployees] = useState([])
 
+  useEffect(() => {
+    const apiUrl2 = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees';
+    fetch(apiUrl2, {
+      method: 'GET',
+      headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8'
+      })
+  })
+      .then(res => {
+          console.log('res=', res);
+          console.log('res.status', res.status);
+          console.log('res.ok', res.ok);
+          return res.json()
+      })
+      .then(
+          (result) => {
+              console.log("fetchgettEmployee= ", result);
+              setEmployees(result)
+          },
+          (error) => {
+              console.log("err post=", error);
+          });
+  },[])
   useEffect(() => {
     fetch("https://proj.ruppin.ac.il/bgroup93/prod/api/Orders", {
       method: 'GET',
@@ -48,7 +73,11 @@ export default function ManageOrder(props) {
         
       
     </div>
-    <div style={{marginBottom:"13px"}}><select name="" id=""></select></div>
+    <div style={{marginBottom:"13px"}}><select name="" id="">\
+        <option value=""></option>
+        {employees.map(e => <option value={e.FirstName + " " + e.LastName}>{e.FirstName + " " + e.LastName}</option> )}
+    </select></div>
+
       <button>שבץ נסיעה</button>
     </div>
     </div>
