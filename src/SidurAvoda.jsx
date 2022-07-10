@@ -71,7 +71,7 @@ export default function ManageOrder(props) {
     {orderNums.map(a =><option value={a}>{a}</option>)}
     </select>
         
-      
+       
     </div>
     <div style={{marginBottom:"13px"}}><select name="" id="">\
         <option value=""></option>
