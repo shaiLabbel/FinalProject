@@ -10,11 +10,56 @@
     display:flex;
 }
 .left{
-    width:20%;
-    background-color: blanchedalmond;
+    height: 60vh;
+    width:50%;
+    color: rgb(0, 0, 0);
+    direction: rtl;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #f3f3f3;
+    background-color: #8f9fae;
+    overflow-y: auto;
 }
-.right:{
+.right{
+    height: 100%;
     width:60%;
     background-color: yellowgreen;
+}
 
+form.ManageOrderForm div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.sidurAvodaPage{
+    display: flex;
+    flex-direction: column;
+}
+.sidurAvodaTable{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    border: 1px solid #000;
+}
+.sidurAvodaTable .header{
+    display: flex;
+    background-color: #8f9fae;
+    margin:0;
+}
+.sidurAvodaTable .header div{
+    border: 1px solid #000;
+    font-size: 30px;
+    width: 14.28%;
+}
+.sidurAvodaTable .body{
+    display: flex;
+    background-color: #3f474f;
+}
+.sidurAvodaTable .body div{
+    border: 1px solid #000;
+    flex: 1;
+    font-size: 15px;
+    width: 14.28%;
 }

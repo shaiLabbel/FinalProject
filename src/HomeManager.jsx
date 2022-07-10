@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from './Navbar';
 import './CssFiles/HomeManager.css'
 import './App.css'
 
 
 export default function HomeManager() {
+
+  const [sidur, setSidur] = useState([])
 
   useEffect(() => {
     fetch("https://proj.ruppin.ac.il/bgroup93/prod/api/Orders", {
@@ -23,6 +25,7 @@ export default function HomeManager() {
       .then(
           (result) => {
               console.log("fetchgettEmployee= ", result);
+              setSidur(result)
           },
           (error) => {
               console.log("err post=", error);
@@ -31,39 +34,6 @@ export default function HomeManager() {
   })
 
 
-  const sidur =[ {
-    place: "sosanim",
-    from: {
-      cityStart: "nbetanya",
-      timeStart:"11",
-      cityEnd: "haifa",
-      timeEnd:"12"
-    },
-    to: {
-      cityStart: "haifa",
-      timeStart:"15",
-      cityEnd: "netanya",
-      timeEnd:"16"
-    },
-    driver: "yossi"
-    
-  },{
-    place: "sosanim",
-    from: {
-      cityStart: "nbetanya",
-      timeStart:"11",
-      cityEnd: "haifa",
-      timeEnd:"12"
-    },
-    to: {
-      cityStart: "haifa",
-      timeStart:"15",
-      cityEnd: "netanya",
-      timeEnd:"16"
-    },
-    driver: "yossi"
-}]
-
   return (
 
     <div >
@@ -71,26 +41,13 @@ export default function HomeManager() {
       <div className='page' >
         <div className='left'>
           <div>סידור עבודה לתאריך {new Date().toLocaleDateString()}</div>
-          {sidur.map((s,i)=> <div style={{backgroundColor: i%2 ? "pink":"purple"}}>
-            <p>{s.name}</p>
-            <br />
-            <p>{s.place}</p>
-            <br />
-            <p>{s.from.cityStart} - {s.from.timeStart} --> {s.from.cityEnd} - {s.from.timeEnd}</p>
-            <br />
+          {sidur.map((s,i)=> <div className='oneRow' style={{backgroundColor: i%2 ? "#fff":"#525252" }}>
+            <p>{s.ContactName}</p>
+            <p>{s?.Points[0]?.CollectionPoint}</p>
+            <p>{s?.Points[0]?.CollectionTime} --{'>'} {s?.Points[1]?.CollectionTime}</p>
             <p>{s.driver}</p>
           </div>)}
 
-        </div>
-        <div className='right'>
-          <div>
-            עדכונים מה24 שעות
-          </div>
-          <div style={{display:"flex", justifyContent:"space-around"}}>
-            <div style={{marginRight: "5px"}}>
-              סגירת הזמנה 
-            </div>
-          </div>
         </div>
       </div>
     </div>
