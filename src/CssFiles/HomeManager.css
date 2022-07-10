@@ -4,14 +4,17 @@
     min-height: 93vh;
     flex-direction: row;
     align-items:center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: calc(10px + 2vmin);
     color: white;
     display:flex;
-    
-    
-    
-    
-   
-    
+}
+.left{
+    width:20%;
+    background-color: blanchedalmond;
+}
+.right:{
+    width:60%;
+    background-color: yellowgreen;
+
 }

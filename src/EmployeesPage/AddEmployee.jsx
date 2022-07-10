@@ -4,6 +4,7 @@ import EmployeeCard from './EmployeeCard';
 
 export default function AddEmployee() {
 
+    const img = "https://cdn-icons-png.flaticon.com/512/305/305982.png"
     const apiUrl = 'https://proj.ruppin.ac.il/bgroup93/prod/api/Employees';
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -11,7 +12,7 @@ export default function AddEmployee() {
     const [mail, setMail] = useState();
     const [phone, setPhone] = useState();
     const [date, setDate] = useState();
-    const [card, setCard] = useState(<EmployeeCard img={'https://cdn-icons-png.flaticon.com/512/305/305982.png'} />);
+    const [card, setCard] = useState(<EmployeeCard img={img} />);
     const [alert, setAlert] = useState('');
     const [isAlert, setIsAlert] = useState('false');
 
@@ -24,6 +25,7 @@ export default function AddEmployee() {
 
     
     const editData = () => {
+        const access = "a";
         let employee = { Id: id, FirstName: firstName, LastName: lastName, Mail: mail, PhoneNumber: phone, StartWorking: date, Img: img, ManagerAccess: access };
         postData(employee);
     }
@@ -53,6 +55,7 @@ export default function AddEmployee() {
 
     }
     const newCard = () => {
+        const access="k";
         const card = <EmployeeCard type='new' id={id} firstName={firstName} lastName={lastName} phone={phone} mail={mail} date={date} img={img} access={access} />
         setCard(card);
 
