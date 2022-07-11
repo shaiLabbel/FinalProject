@@ -17,7 +17,7 @@ const typeButton =()=>{
       setButtonT(buttonType);  
     }
     if(props.type==='new'){
-        let buttonType=<button onClick={()=>(navigate('/VehiclesPage'))} style={{ margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}>רכב חדש נכנס למערכת! לחץ חזרה למסך הרכבים</button>;
+        let buttonType=<button onClick={()=>(navigate('/VehiclesPage'))} style={{fontSize:'12px', margin: 5, borderRadius: '2mm', backgroundColor: '#f95844' }}>רכב חדש נכנס למערכת! לחץ חזרה למסך הרכבים</button>;
         setButtonT(buttonType);
     }
    
@@ -59,22 +59,22 @@ const typeButton =()=>{
    
     return (
         <div className='col'>
-            <div style={{ width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #8f9fae', borderRadius: 30, backgroundColor: '#8f9fae' }} class="card">
+            <div style={{ height:'370px',width: "15rem", color: 'grey', margin: 10, direction: 'rtl', fontSize:15, border: '2px solid #8f9fae', borderRadius: 30, backgroundColor: '#8f9fae' }} class="card">
                 <img style={
-                    {alignSelf:'center' ,height:'100px', width:'100px'}} src={props.img} class="card-img-top" alt="..." />
+                    {alignSelf:'center' ,height:'70px', width:'70px'}} src={'https://cdn-icons-png.flaticon.com/512/568/568158.png'} class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text"><u>מספר רכב:</u></p>
-                    <p style={{ margin: 0 ,color:'black' }}>{props.number}</p>
+                    <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text" ><u>מספר רכב:</u></p>
+                    <p style={{ margin: 0 ,color:'black', fontWeight: 'normal', }}>{props.number}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">יצרן:</p>
-                    <p style={{ margin: 0 ,color:'black' }}>{props.manufacturer}</p>
+                    <p style={{ margin: 0 ,color:'black', fontWeight: 'normal' }}>{props.manufacturer}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">סוג :</p>
-                    <p style={{ margin: 0 ,color:'black' }}>{props.vtype}</p>
+                    <p style={{ margin: 0 ,color:'black' , fontWeight: 'normal'}}>{props.vtype}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">תוקף טסט :</p>
-                    <p style={{ margin: 0,  color:'black'}}>{props.test}</p>
+                    <p style={{ margin: 0,  color:'black', fontWeight: 'normal'}}>{props.test}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">נכנס לחברה בתאריך :</p>
-                    <p style={{ margin: 0,  color:'black'}}>{props.entry}</p>
+                    <p style={{ margin: 0,  color:'black', fontWeight: 'normal'}}>{props.entry}</p>
                     <p style={{ margin: 0, fontWeight: 'bold', color:'black' }} class="card-text">הערות מיוחדות :</p>
-                    <p style={{ margin: 0, color:'black' }}>{props.remarks}</p>
+                    <p style={{ margin: 0, color:'black', fontWeight: 'normal' }}>{props.remarks}</p>
                     {buttonT}
                 </div>
             </div>

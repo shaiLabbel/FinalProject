@@ -16,12 +16,7 @@ export default function Navbar() {
             <Link to='/ManagmentPage' className='navbar-logo'>
                ניהול הזמנות
             </Link>
-            <Link to='/SidurAvoda' className='navbar-logo'>
-               סידור עבודה
-            </Link>
-            <Link to='' className='navbar-logo'>
-               לקוחות
-            </Link>
+
             <Link to='/EmployeesPage' className='navbar-logo'>
                נהגים
             </Link>

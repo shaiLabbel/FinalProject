@@ -1,54 +1,50 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import './CssFiles/HomeManager.css'
-import './App.css'
-
+import './App.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeManager() {
 
-  const [sidur, setSidur] = useState([])
-
-  useEffect(() => {
-    fetch("https://proj.ruppin.ac.il/bgroup93/prod/api/Orders", {
-      method: 'GET',
-      headers: new Headers({
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Accept': 'application/json; charset=UTF-8'
-      })
-  })
-      .then(res => {
-          console.log('res=', res);
-          console.log('res.status', res.status);
-          console.log('res.ok', res.ok);
-          return res.json()
-      })
-      .then(
-          (result) => {
-              console.log("fetchgettEmployee= ", result);
-              setSidur(result)
-          },
-          (error) => {
-              console.log("err post=", error);
-          });
-
-  })
-
+  const navigate = useNavigate();
 
   return (
 
     <div >
       <Navbar />
-      <div className='page' >
-        <div className='left'>
-          <div>סידור עבודה לתאריך {new Date().toLocaleDateString()}</div>
-          {sidur.map((s,i)=> <div className='oneRow' style={{backgroundColor: i%2 ? "#fff":"#525252" }}>
-            <p>{s.ContactName}</p>
-            <p>{s?.Points[0]?.CollectionPoint}</p>
-            <p>{s?.Points[0]?.CollectionTime} --{'>'} {s?.Points[1]?.CollectionTime}</p>
-            <p>{s.driver}</p>
-          </div>)}
+      <div className='pageM' >
+        <div className='container'>
+          <div className='row'>
+        
+            <div className='col'>
+        
+              <img className='imageO' src='https://cdn-icons-png.flaticon.com/512/5261/5261866.png' onClick={()=>{navigate('/ManagmentPage')}} />
+            </div>
 
+            <div className='col'>
+        
+              <img className='imageD' src='https://cdn-icons-png.flaticon.com/512/305/305982.png' onClick={()=>{navigate('/EmployeesPage')}} />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col'>
+              <h3 className='header'>ברוך הבא</h3>
+              <h1 className='header'>לנוף הסעות</h1>
+            </div>
+
+          </div>
+          <div className='row'>
+            <div className='col'>
+          
+              <img className='imageV' src='https://cdn-icons-png.flaticon.com/512/568/568158.png' onClick={()=>{navigate('/VehiclesPage')}} />
+            </div>
+            <div className='col'>
+        
+              <img className='imageI' src='https://cdn-icons-png.flaticon.com/512/747/747050.png' onClick={()=>{navigate('/OrderCreation')}}/>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 

@@ -76,7 +76,7 @@ margin-top: 5px;
     border-radius: 2px;
 
 }
-.tag4{
+.tag5{
     background-color:#bc6bf1;
     font-size: 12px;
     align-items: center;
@@ -114,9 +114,10 @@ margin-top: 5px;
     direction: 'rtl';
     color: white;
     background-color: #198754;
+    border: 1px solid #198754;
     border-radius: 2mm;
     font-size: 15px;
-    width:120px;
+    width:160px;
     margin-right:130px;
     margin-top:5px;
 }
@@ -126,4 +127,26 @@ margin-top: 5px;
     background-color: #2db676;
     border-radius: 2mm;
     font-size: 15px;
+}
+.buttonBidNew{
+    direction: 'rtl';
+    color: white;
+    background-color: #f61010;
+    border: 1px solid #f61010;
+    border-radius: 2mm;
+    font-size: 15px;
+    width:160px;
+    margin-right:130px;
+    margin-top:5px;
+}
+.buttonBidNew:hover{
+    direction: 'rtl';
+    color: white;
+    background-color: #f14c4c;
+    border: 1px solid #f14c4c;
+    border-radius: 2mm;
+    font-size: 15px;
+    width:160px;
+    margin-right:130px;
+    margin-top:5px;
 }

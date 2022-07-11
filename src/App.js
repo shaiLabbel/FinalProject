@@ -22,7 +22,9 @@ import SchedulePage from './WorkSchedule/SchedulePage';
 import ManageOrder from './ManageOrder';
 import SidurAvoda from './SidurAvoda';
 import BidUpdate from './OrderManagment/BidUpdate';
-
+import BidConfirm from './OrderManagment/BidConfirm';
+import PickDriver from './OrderManagment/PickDriver';
+import OrderReady from './OrderManagment/OrderReady';
 function App() {
 
   return (
@@ -50,6 +52,9 @@ function App() {
         <Route path='/ManageOrder' element={<ManageOrder/>}/>
         <Route path='/SidurAvoda' element={<SidurAvoda/>}/>
         <Route path='/BidUpdate' element={<BidUpdate/>}/>
+        <Route path='/BidConfirm' element={<BidConfirm/>}/>
+        <Route path='/PickDriver' element={<PickDriver/>}/>
+        <Route path='/OrderReady' element={<OrderReady/>}/>
         
       </Routes>
 
